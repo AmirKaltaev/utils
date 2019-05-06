@@ -1,0 +1,54 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+ext {
+    bintrayRepo = 'ailuna'
+    bintrayName = 'utils'
+
+    publishedGroupId = 'org.ailuna'
+    libraryName = 'BasicUtils'
+    artifact = 'utils'
+
+    libraryDescription = 'Basic utils for andoid application'
+
+    siteUrl = 'https://github.com/AmirKaltaev/basic-utils'
+    gitUrl = 'https://github.com/AmirKaltaev/basic-utils.git'
+
+    libraryVersion = '1.0.0'
+
+    developerId = 'amirkaltayev'
+    developerName = 'Amir Kaltayev'
+    developerEmail = 'amirkaltaev@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+
+        minSdkVersion 15
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+}
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
